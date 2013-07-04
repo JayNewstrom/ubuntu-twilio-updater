@@ -15,10 +15,10 @@ An updater for ubuntu you can put in a cron job, and get text message updates fr
 
 ## Pseudo Code
 
-If there are updates
-  Send text to everyone in the "always_send" array with number of updates to be performed
-  Update the server
-  If update was successful
-    Send a text to everyone in the "always_send" array saying the update was a success
-  Else
-    Send a text to everyone in the "always_send" array and the "error_send" array saying the update was a failure
+    If there are updates
+      Send text to everyone in the "always_send" array with number of updates to be performed
+      Update the server
+      If update was successful
+        Send a text to everyone in the "always_send" array saying the update was a success
+      Else
+        Send a text to everyone in the "always_send" array and the "error_send" array saying the update was a failure
