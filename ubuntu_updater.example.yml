@@ -1,0 +1,24 @@
+server_name: 'BestServerEver'
+twilio_account_sid: 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+twilio_auth_token: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+twilio_from_number: '+1xxxxxxxxxx'
+always_send:
+  -
+    name: 'Jay'
+    number: '+1xxxxxxxxxx'
+  -
+    name: 'Joe'
+    number: '+1xxxxxxxxxx'
+  -
+    name: 'Frank'
+    number: '+1xxxxxxxxxx'
+error_send:
+  -
+    name: 'Bob'
+    number: '+1xxxxxxxxxx'
+  -
+    name: 'Jenifer'
+    number: '+1xxxxxxxxxx'
+  -
+    name: 'Pam'
+    number: '+1xxxxxxxxxx'
