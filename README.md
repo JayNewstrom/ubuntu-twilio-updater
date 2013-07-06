@@ -11,7 +11,9 @@ An updater for ubuntu you can put in a cron job, and get text message updates fr
     cp ubuntu_updater.example.yml ubuntu_updater.yml
 
 3. Update ubuntu_updater.yml with your twilio settings
-4. Setup a cron job to run as root, at your desired interval
+4. Ensure ruby is installed
+5. Ensure gems are installed (yaml, twilio-ruby)
+6. Setup a cron job to run as root, at your desired interval
 
 ## Pseudo Code
 
