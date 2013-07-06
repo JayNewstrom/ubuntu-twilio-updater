@@ -23,13 +23,42 @@ class TwilioMessageSender
 private
 
   def internal_send_message_with_name(people, message)
+    messages = []
     people.each do |person|
-      @client.account.sms.messages.create(
-        :from => @from,
-        :to => person['number'],
-        :body => "#{person['name']}, #{message}"
-      )
+      person_message = "#{person['name']}, " + message
+      messages.push({message: person_message, person: person})
     end
+
+    messages.each do |obj|
+      person_message = obj[:message]
+      person = obj[:person]
+
+      break_message_into_messages(person_message).each do |short_message|
+        @client.account.sms.messages.create(
+          :from => @from,
+          :to => person['number'],
+          :body => short_message
+        )
+      end
+    end
+  end
+
+  # this only accounts for up to 9 messages,
+  # you shouldn't be sending this in a text
+  # if it is more than 10 messages long!
+  def break_message_into_messages(message)
+    return [message] if message.length <= 160
+
+    messages = []
+    number_of_messages = message.length / 155 + 1
+    (1..number_of_messages).each do |message_number|
+      short_message = message.slice((message_number - 1) * 155, 155)
+
+      short_message.prepend "(#{message_number}/#{number_of_messages})"
+      messages.push short_message
+    end
+
+    return messages
   end
 
 end
