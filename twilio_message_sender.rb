@@ -13,11 +13,11 @@ class TwilioMessageSender
   end
 
   def send_message_with_name(message)
-    internal_send_message_with_name @error_send_people, message
+    internal_send_message_with_name @always_send_people, message
   end
 
   def send_error_message_with_name(message)
-    internal_send_message_with_name @always_send_people, message
+    internal_send_message_with_name @error_send_people, message
   end
 
 private

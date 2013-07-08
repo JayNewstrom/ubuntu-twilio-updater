@@ -23,7 +23,7 @@ if starting_number_of_upgrades > 0
   twilio_from = config['twilio_from_number']
   always_send = config['always_send']
   error_send = config['error_send']
-  error_send = error_send.concat always_send
+  error_send.concat always_send
   server_name = config['server_name']
 
   twilio_message_sender = TwilioMessageSender.new twilio_account, twilio_auth_token, twilio_from, always_send, error_send
